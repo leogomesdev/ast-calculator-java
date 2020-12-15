@@ -9,7 +9,7 @@ import java.util.List;
  * Also contains the resolver of the acceptable operations.
  */
 public class OperatorsDictionary {
-    public List<String> ALL = Arrays.asList("plus", "minus", "times", "divided");
+    public List<String> ALL = Arrays.asList("plus", "minus", "times", "divided", "newOperator");
 
     public String TYPE_NUM = "NUM";
     public String TYPE_LEFT_PAREN = "L_PAREN";
@@ -23,6 +23,7 @@ public class OperatorsDictionary {
         put("minus", 1);
         put("times", 2);
         put("divided", 2);
+        put("newOperator", 3);
     }};
 
     /**
@@ -43,6 +44,8 @@ public class OperatorsDictionary {
                 return v1 * v2;
             case "divided":
                 return v1 / v2;
+            case "newOperator":
+                return v1 * (v2/2);
             default:
                 throw new Exception("Operation is invalid: " + operationName);
         }
